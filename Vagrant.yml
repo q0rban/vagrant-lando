@@ -1,0 +1,39 @@
+## To override any of the options below, create a Vagrant.local.yml and modify
+## it as you see fit.
+vb:
+  ## The hostname you'd like for this VM.
+  hostname: vagrant-lando.local
+
+  ## The exact version of Lando you want to install.
+  lando_version: v3.0.0-rc.19
+
+  ## The ports you would like forwarded to your local host, in the format
+  ## 'xxxx:yyyy', where xxxx is the port on your host and yyyy is the port in
+  ## the vagrant vm.
+  ports:
+    - '80:80'
+
+  ## Which vagrant box to use
+  box: ubuntu/xenial64
+
+  ## Which type of network to use to access the VMs. Use "public_network" if
+  ## you want bridged interfaces to your local network.
+  network: private_network
+
+  ## Number of CPUs to give to the VM.
+  cpus: 1
+
+  ## How much memory (in MB) to give to the VM.
+  memory: 2048
+
+  ## How big to make the hard drive. You can specify the size as a raw number
+  ## (in bytes) or using KB, MB, GB or TB. See the vagrant-disksize plugin
+  ## for more details here: https://github.com/sprotheroe/vagrant-disksize
+  disksize: 20GB
+
+  ## Method used for synced folders. The default (empty) is to use the VM
+  ## Providers' file sharing method. Other valid values include nfs, smb, or
+  ## rsync. The slowest option is to leave this blank. 'rsync' is the fastest but
+  ## needs to be manually synced. 'nfs' on Mac and 'smb' on Windows are usually
+  ## a good balance of performance and convenience.
+  sync: ''

@@ -1,0 +1,5 @@
+/.idea
+/Vagrant.local.yml
+/provision.sh
+/.vagrant
+/*.log
