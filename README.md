@@ -32,11 +32,11 @@ curl --fail --silent --show-error --location \
 
 ## Customize
 
-Once you have the files, copy the `example.Vagrant.local.yml` file to
-`Vagrant.local.yml`:
+Once you have the files, copy the `dist/Vagrant.yml` file to
+`Vagrant.yml`:
 
 ```
-cp example.Vagrant.local.yml Vagrant.local.yml
+cp dist/Vagrant.yml Vagrant.yml
 ```
 
 Then, read through that file and make modifications as you see fit for the needs

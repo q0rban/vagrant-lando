@@ -8,15 +8,20 @@ require 'yaml'
 ## values in an optional "Vagrant.local.yml" file, which is ignored by git.
 
 dir = File.dirname(File.expand_path(__FILE__))
-settings = YAML::load_file("#{dir}/Vagrant.yml")
-if File.exists?("#{dir}/Vagrant.local.yml")
-  local = YAML::load_file("#{dir}/Vagrant.local.yml")
-  settings["vb"].merge!(local["vb"])
-end
 
+# Copy the provision script into place.
 if !File.exists?("#{dir}/provision.sh")
   FileUtils.copy_file("#{dir}/dist/provision.sh", "#{dir}/provision.sh")
 end
+
+# Copy the Vagrant.yml file into place.
+if !File.exists?("#{dir}/Vagrant.yml")
+  FileUtils.copy_file("#{dir}/dist/Vagrant.yml", "#{dir}/Vagrant.yml")
+  puts "Vagrant.yml copied into place. You should edit this file and run this command again."
+  abort
+end
+
+settings = YAML::load_file("#{dir}/Vagrant.yml")
 
 # Require vagrant 1.8.1 or higher
 Vagrant.require_version ">= 1.8.1"
